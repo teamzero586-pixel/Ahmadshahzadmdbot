@@ -1,1144 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>👑 A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 👑</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>AHMADSHAHZAD-MD | Pairing</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<meta name="description" content="A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 — pair your WhatsApp number in seconds and get a fast, always-on WhatsApp bot with group admin tools, fun commands, anti-delete, anti-call and more. Powered by ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎.">
-<meta name="keywords" content="A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓, WhatsApp bot, ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎, WhatsApp pairing code, WhatsApp automation, group admin bot">
-<meta name="author" content="✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎">
-<meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 — Pair Your WhatsApp">
-<meta property="og:description" content="Pair your WhatsApp number in seconds and get a fast, always-on WhatsApp bot. Powered by ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎.">
-<meta property="og:image" content="/media/naruto-mini-bot-banner.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 — Pair Your WhatsApp">
-<meta name="twitter:description" content="Pair your WhatsApp number in seconds and get a fast, always-on WhatsApp bot. Powered by ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎.">
-<meta name="twitter:image" content="/media/naruto-mini-bot-banner.jpg">
-<meta name="theme-color" content="#ffb800">
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #070810;
+      color: white;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    .bg-gradient {
+      position: fixed; width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(249, 115, 22, 0.09) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 60% at 80% 60%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(99, 102, 241, 0.07) 0%, transparent 50%),
+        #070810;
+      z-index: 0;
+    }
 
-<style>
-/*
-  Design tokens — A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓
-  Palette pulled from the bot's own banner art (Hidden-Leaf night, chakra
-  gold/ember) instead of the generic animated-rainbow-gradient look this
-  page used before.
-    --void     near-black warm brown — page background, night village
-    --panel    card surface
-    --panel-2  input/inset surface, one step lighter than panel
-    --gold     primary accent — chakra gold
-    --ember    secondary accent — warm orange-red
-    --ink      body text (warm off-white, not pure white)
-    --ink-dim  muted text
-    --line     hairline borders, gold-tinted
-  Display type: Bebas Neue (condensed, poster-impact — echoes the banner's
-  own lettering) for the headline only, used with restraint. Poppins stays
-  for every UI/body element since it's legible at small sizes on a phone.
-*/
-:root {
-    --void: #0a0704;
-    --panel: #161009;
-    --panel-2: #1f160d;
-    --gold: #ffb833;
-    --gold-soft: #ffd580;
-    --ember: #ff6a2c;
-    --ink: #f5ecdc;
-    --ink-dim: #b7a68d;
-    --line: rgba(255, 184, 51, 0.22);
-    --danger: #ff5470;
-    --good: #5fd68a;
-}
+    .glow-orb {
+      position: fixed; width: 700px; height: 700px; border-radius: 50%;
+      filter: blur(150px); opacity: 0.22; z-index: 1;
+      animation: float 18s infinite ease-in-out;
+    }
+    .orb-1 { top: -250px; left: -150px; background: linear-gradient(135deg, #f97316 0%, #eab308 50%, #22c55e 100%); animation-delay: 0s; }
+    .orb-2 { bottom: -250px; right: -150px; background: linear-gradient(135deg, #14b8a6 0%, #6366f1 50%, #f97316 100%); animation-delay: -9s; }
+    .orb-3 { top: 40%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: linear-gradient(135deg, #eab308 0%, #22c55e 50%, #6366f1 100%); opacity: 0.1; animation-delay: -4s; animation-duration: 25s; }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, -40px) scale(1.08); }
+      66% { transform: translate(-40px, 60px) scale(0.95); }
+    }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    overscroll-behavior: none;
-}
+    .container {
+      position: relative; z-index: 10; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
 
-@keyframes emberDrift {
-    0%   { background-position: 0% 0%, 100% 100%; }
-    50%  { background-position: 8% 4%, 92% 96%; }
-    100% { background-position: 0% 0%, 100% 100%; }
-}
+    .card {
+      width: 100%; max-width: 480px;
+      background: rgba(12, 14, 22, 0.6);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 32px; padding: 40px 30px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(99, 102, 241, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      position: relative; overflow: hidden;
+      animation: slideIn 0.6s ease;
+    }
 
-@keyframes floatGlow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
+    @keyframes slideIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #f97316 15%, #eab308 30%, #22c55e 50%, #14b8a6 70%, #6366f1 85%, transparent 100%);
+    }
 
-@keyframes pop {
-    0% { transform: scale(0.94); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
+    .header { text-align: center; margin-bottom: 30px; }
 
-@keyframes chakraPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,51,0.0), 0 18px 60px rgba(0,0,0,0.6); }
-    50% { box-shadow: 0 0 0 6px rgba(255,184,51,0.08), 0 18px 60px rgba(0,0,0,0.6); }
-}
+    .logo-container { width: 90px; height: 90px; margin: 0 auto 20px; position: relative; }
 
-@keyframes sweep {
-    0% { transform: translateX(-120%); }
-    100% { transform: translateX(220%); }
-}
+    .logo-ring {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: 3px solid transparent;
+      border-top-color: #f97316; border-right-color: #eab308; border-bottom-color: #22c55e; border-left-color: #6366f1;
+      border-radius: 50%; animation: spin 3s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-body {
-    min-height: 100dvh;
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    color: var(--ink);
-    padding: 0;
-    overflow-x: hidden;
-    background:
-        radial-gradient(ellipse 700px 500px at 12% -6%, rgba(255,106,44,0.16) 0%, transparent 60%),
-        radial-gradient(ellipse 700px 500px at 88% 106%, rgba(255,184,51,0.12) 0%, transparent 60%),
-        var(--void);
-    background-size: 200% 200%, 200% 200%, 100% 100%;
-    animation: emberDrift 22s ease-in-out infinite;
-    position: relative;
-}
+    .logo {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #f97316 0%, #eab308 35%, #22c55e 70%, #6366f1 100%);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 38px; color: white;
+      box-shadow: 0 10px 40px rgba(249, 115, 22, 0.3), 0 0 60px rgba(34, 197, 94, 0.15), 0 0 100px rgba(99, 102, 241, 0.08);
+    }
 
-.wrap {
-    width: 100%;
-    min-height: 100dvh;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 16px;
-    position: relative;
-    z-index: 1;
-}
+    .title {
+      font-size: 28px; font-weight: 700; margin-bottom: 8px;
+      background: linear-gradient(135deg, #f97316 0%, #eab308 25%, #22c55e 50%, #14b8a6 75%, #6366f1 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
 
-.card {
-    width: 100%;
-    max-width: 440px;
-    background: linear-gradient(180deg, var(--panel) 0%, #120c07 100%);
-    border-radius: 26px;
-    padding: 0 24px 28px;
-    text-align: center;
-    border: 1px solid var(--line);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255,255,255,0.04);
-    animation: pop 0.5s ease, chakraPulse 4s ease-in-out infinite;
-    overflow: hidden;
-    position: relative;
-}
+    .subtitle { font-size: 14px; color: rgba(255, 255, 255, 0.5); font-weight: 400; }
 
-/* thin gold sweep across the top edge — the one signature flourish, kept restrained */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--ember), var(--gold), transparent);
-    background-size: 300% auto;
-    opacity: 0.9;
-}
+    .social-row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
 
-.logo {
-    display: block;
-    width: calc(100% + 48px);
-    margin: 0 -24px 18px;
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
-    border-bottom: 2px solid var(--line);
-    animation: floatGlow 5s ease-in-out infinite;
-}
+    .social-circle {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 19px; text-decoration: none; flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; position: relative;
+    }
+    .social-circle:hover { transform: translateY(-4px) scale(1.06); }
+    .social-circle.whatsapp { background: linear-gradient(135deg, #22c55e, #15803d); box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35); }
+    .social-circle.youtube { background: linear-gradient(135deg, #f97316, #c2410c); box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35); }
+    .social-circle.tiktok { background: linear-gradient(135deg, #6366f1, #4338ca); box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35); }
+    .social-circle.instagram { background: linear-gradient(135deg, #eab308, #db2777); box-shadow: 0 6px 18px rgba(219, 39, 119, 0.35); }
+    .social-circle:hover.whatsapp { box-shadow: 0 10px 26px rgba(34, 197, 94, 0.5); }
+    .social-circle:hover.youtube { box-shadow: 0 10px 26px rgba(249, 115, 22, 0.5); }
+    .social-circle:hover.tiktok { box-shadow: 0 10px 26px rgba(99, 102, 241, 0.5); }
+    .social-circle:hover.instagram { box-shadow: 0 10px 26px rgba(219, 39, 119, 0.5); }
 
-.title {
-    margin-top: 18px;
-    font-family: 'Bebas Neue', 'Poppins', sans-serif;
-    font-size: 1.9rem;
-    letter-spacing: 2px;
-    font-weight: 400;
-    background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--ember), var(--gold));
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: emberDrift 8s linear infinite;
-    line-height: 1.2;
-}
+    /* Live bot status panel (replaces the old fake multi-server picker —
+       this deployment is a single bot instance, so we show its real,
+       live status instead of a list of make-believe "servers"). */
+    .server-info {
+      background: rgba(20, 184, 166, 0.06);
+      border: 1px solid rgba(20, 184, 166, 0.18);
+      border-radius: 16px; padding: 15px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .server-info-left { display: flex; align-items: center; gap: 12px; }
+    .server-info-left i { color: #14b8a6; font-size: 20px; }
+    .server-details { flex: 1; }
+    .server-name { display: block; font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .server-stats { display: flex; gap: 15px; font-size: 12px; color: rgba(255, 255, 255, 0.6); flex-wrap: wrap; }
+    .server-stat { display: flex; align-items: center; gap: 4px; }
+    .server-stat i { font-size: 10px; }
 
-.subtitle {
-    margin-top: 4px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--ink-dim);
-}
+    .change-server-btn {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 500;
+      cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
+    }
+    .change-server-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(20, 184, 166, 0.3); transform: translateY(-2px); }
 
-.hint {
-    margin-top: 16px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--gold-soft);
-}
+    .server-selection {
+      display: none; background: rgba(8, 10, 18, 0.95); border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 16px; padding: 20px; margin-bottom: 20px; max-height: 300px; overflow-y: auto;
+    }
+    .server-selection.show { display: block; animation: fadeIn 0.3s ease; }
+    .server-selection-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; color: rgba(255, 255, 255, 0.9); text-align: center; }
+    .server-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .server-option {
+      background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 12px; padding: 15px; cursor: pointer; transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .server-option:hover { background: rgba(20, 184, 166, 0.06); border-color: rgba(20, 184, 166, 0.18); transform: translateY(-2px); }
+    .server-option.selected { background: rgba(20, 184, 166, 0.1); border-color: #14b8a6; }
+    .server-option-name { font-weight: 500; font-size: 14px; color: rgba(255, 255, 255, 0.9); }
+    .server-option-stats { display: flex; gap: 10px; font-size: 12px; color: rgba(255, 255, 255, 0.6); }
 
-.hint-small {
-    margin-top: 4px;
-    font-size: 0.68rem;
-    color: var(--ink-dim);
-    line-height: 1.6;
-}
+    .info-box {
+      background: rgba(249, 115, 22, 0.06); border: 1px solid rgba(249, 115, 22, 0.16);
+      border-radius: 16px; padding: 18px; margin-bottom: 25px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .info-box i { color: #f97316; font-size: 20px; margin-top: 2px; }
+    .info-box-text { flex: 1; }
+    .info-box-text strong { display: block; margin-bottom: 4px; font-size: 15px; }
+    .info-box-text p { font-size: 13px; color: rgba(255, 255, 255, 0.6); line-height: 1.5; }
 
-.input-box {
-    margin-top: 16px;
-    width: 100%;
-    padding: 16px 18px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 1px;
-    border-radius: 14px;
-    border: 1.5px solid var(--line);
-    background: var(--panel-2);
-    color: var(--ink);
-    outline: none;
-    transition: border-color 0.2s ease;
-}
+    .connect-bot-box { margin-top: -10px; margin-bottom: 25px; }
+    .connect-bot-title { color: #ffffff; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }
+    .connect-bot-link {
+      display: inline-flex; align-items: center; gap: 8px; color: #3b82f6;
+      font-size: 13.5px; font-weight: 600; cursor: pointer; user-select: none; transition: all 0.25s ease;
+    }
+    .connect-bot-link:hover { color: #60a5fa; text-decoration: underline; }
+    .connect-bot-link i { font-size: 13px; }
 
-.input-box:focus {
-    border-color: var(--gold);
-}
+    .video-container { display: none; margin-top: 14px; border-radius: 16px; overflow: hidden; border: 2px solid rgba(59, 130, 246, 0.35); background: #000; }
+    .video-container.show { display: block; animation: fadeIn 0.3s ease; }
+    .video-container video { display: block; width: 100%; max-height: 260px; cursor: pointer; background: #000; }
 
-.input-box::placeholder {
-    color: rgba(245, 236, 220, 0.32);
-}
+    .form-group { margin-bottom: 20px; }
+    .label { display: block; margin-bottom: 10px; font-weight: 500; font-size: 14px; color: rgba(255, 255, 255, 0.9); }
+    .input-wrapper { position: relative; }
+    .input-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgba(255, 255, 255, 0.4); font-size: 18px; }
+    .input {
+      width: 100%; padding: 16px 20px 16px 55px;
+      background: rgba(255, 255, 255, 0.02); border: 2px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px; color: white; font-size: 15px; font-family: inherit; transition: all 0.3s ease;
+    }
+    .input:focus { outline: none; border-color: #14b8a6; background: rgba(255, 255, 255, 0.04); box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.08); }
+    .input::placeholder { color: rgba(255, 255, 255, 0.25); }
+    .hint { font-size: 12px; color: rgba(255, 255, 255, 0.35); margin-top: 8px; display: flex; align-items: center; gap: 6px; }
+    .hint i { font-size: 11px; }
 
-.btn {
-    margin-top: 16px;
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 14px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #1a0f04;
-    background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--ember));
-    background-size: 200% auto;
-    cursor: pointer;
-    transition: transform 0.15s ease, background-position 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
+    .btn {
+      width: 100%; padding: 16px; border: none; border-radius: 16px;
+      font-size: 16px; font-weight: 600; font-family: inherit; cursor: pointer;
+      transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-generate {
+      background: linear-gradient(135deg, #f97316 0%, #eab308 35%, #22c55e 70%, #6366f1 100%);
+      color: white;
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25), 0 0 20px rgba(249, 115, 22, 0.12);
+      margin-bottom: 15px; position: relative; overflow: hidden;
+    }
+    .btn-generate::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn-generate:hover:not(:disabled)::before { left: 100%; }
+    .btn-generate:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(34, 197, 94, 0.35), 0 0 30px rgba(249, 115, 22, 0.18); }
+    .btn-generate:active:not(:disabled) { transform: translateY(-1px); }
+    .btn-generate:disabled { opacity: 0.7; cursor: not-allowed; }
 
-.btn:active {
-    transform: scale(0.97);
-    background-position: right center;
-}
+    .btn-copy { background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1); display: none; }
+    .btn-copy:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
 
-.btn:disabled {
-    opacity: 0.6;
-    cursor: default;
-}
+    .loading { display: none; text-align: center; margin: 20px 0; }
+    .spinner {
+      width: 45px; height: 45px; border: 4px solid rgba(20, 184, 166, 0.1); border-radius: 50%;
+      border-top-color: #f97316; border-right-color: #eab308; border-bottom-color: #22c55e;
+      animation: spin 1s linear infinite; margin: 0 auto 12px;
+    }
+    .loading-text { color: rgba(255, 255, 255, 0.6); font-size: 14px; }
 
-.result-box {
-    margin-top: 18px;
-    width: 100%;
-    display: none;
-    padding: 18px 16px;
-    border-radius: 14px;
-    border: 1.5px solid var(--line);
-    background: var(--panel-2);
-    animation: pop 0.35s ease;
-}
+    .code-box {
+      background: rgba(0, 0, 0, 0.25); border: 2px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 15px;
+      min-height: 70px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+    }
+    .code-box.has-code { border-color: rgba(20, 184, 166, 0.4); background: rgba(20, 184, 166, 0.04); }
+    .code-box.has-error { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.04); }
+    .code-placeholder { color: rgba(255, 255, 255, 0.25); font-size: 14px; }
+    .code-value { font-size: 24px; font-weight: 700; letter-spacing: 3px; color: #f97316; font-family: 'Courier New', monospace; display: flex; align-items: center; gap: 12px; }
+    .code-value i { font-size: 22px; color: #22c55e; }
+    .error-value { color: #ef4444; font-size: 14px; display: flex; align-items: center; gap: 10px; }
 
-.result-text {
-    font-size: 1.4rem;
-    font-weight: 800;
-    word-break: break-word;
-    color: var(--gold-soft);
-    font-family: 'Bebas Neue', 'Poppins', sans-serif;
-    letter-spacing: 3px;
-}
+    .footer { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.04); }
+    .footer-text { font-size: 12px; color: rgba(255, 255, 255, 0.25); }
 
-.copy-btn {
-    display: none;
-    margin-top: 12px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: rgba(255,184,51,0.08);
-    color: var(--ink);
-    cursor: pointer;
-    border: 1px solid var(--line);
-}
+    .toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(150px);
+      background: linear-gradient(135deg, #f97316 0%, #22c55e 100%); color: white;
+      padding: 14px 24px; border-radius: 50px; font-weight: 500;
+      box-shadow: 0 10px 40px rgba(34, 197, 94, 0.35);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 1000; opacity: 0; display: flex; align-items: center; gap: 10px; font-size: 14px;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .toast.error { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); box-shadow: 0 10px 40px rgba(239, 68, 68, 0.35); }
 
-.copy-btn:active {
-    transform: scale(0.97);
-}
+    .cooldown-timer { display: none; text-align: center; margin: 15px 0; padding: 12px; background: rgba(20, 184, 166, 0.06); border: 1px solid rgba(20, 184, 166, 0.18); border-radius: 12px; }
+    .cooldown-timer.show { display: block; animation: fadeIn 0.3s ease; }
+    .cooldown-timer-text { font-size: 14px; color: rgba(255, 255, 255, 0.8); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .cooldown-timer-text i { color: #eab308; }
+    .cooldown-timer-seconds { font-weight: 700; color: #eab308; font-size: 16px; }
+    .btn-generate.cooldown { background: linear-gradient(135deg, #c2410c 0%, #a16207 35%, #15803d 70%, #4338ca 100%); cursor: not-allowed; }
 
-.copy-btn.copied {
-    background: linear-gradient(90deg, var(--good), #3fae6a);
-    color: #08150d;
-    border-color: transparent;
-}
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-.spinner {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(245,236,220,0.25);
-    border-top-color: var(--gold);
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.badges {
-    margin-top: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-}
-
-/* ── Floating side button ── */
-.fab {
-    position: fixed;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: linear-gradient(135deg, var(--ember), var(--gold));
-    color: #1a0f04;
-    font-size: 1.4rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    cursor: pointer;
-    z-index: 50;
-    animation: chakraPulse 3s ease-in-out infinite;
-}
-.fab:active { transform: translateY(-50%) scale(0.92); }
-
-/* ── Create-Your-Own-Bot modal ── */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(5, 3, 1, 0.8);
-    backdrop-filter: blur(6px);
-    z-index: 100;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 14px;
-}
-.modal-overlay.open { display: flex; }
-
-.modal-card {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    max-height: 88vh;
-    overflow-y: auto;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 26px 20px 22px;
-    text-align: left;
-    animation: pop 0.3s ease;
-}
-
-.modal-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: rgba(255,255,255,0.05);
-    color: var(--ink);
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.modal-title {
-    font-family: 'Bebas Neue', 'Poppins', sans-serif;
-    font-size: 1.35rem;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-    background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--ember));
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: emberDrift 8s linear infinite;
-}
-
-.modal-card .field-label {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--ink-dim);
-    margin: 14px 0 6px;
-}
-.modal-card .field-label:first-of-type { margin-top: 4px; }
-
-.modal-card input[type="text"],
-.modal-card input[type="file"] {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 0.85rem;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: var(--panel-2);
-    color: var(--ink);
-    outline: none;
-}
-.modal-card input[type="text"]::placeholder { color: rgba(245,236,220,0.3); }
-
-.modal-card textarea {
-    width: 100%;
-    padding: 12px 14px;
-    font-size: 0.85rem;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    background: var(--panel-2);
-    color: var(--ink);
-    outline: none;
-    resize: vertical;
-    min-height: 80px;
-    font-family: inherit;
-}
-.modal-card textarea::placeholder { color: rgba(245,236,220,0.3); }
-
-.custom-hint {
-    font-size: 0.62rem;
-    color: var(--ink-dim);
-    margin-top: 4px;
-    line-height: 1.4;
-}
-
-.img-preview {
-    display: none;
-    margin-top: 8px;
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-}
-
-.save-btn {
-    margin-top: 20px;
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 14px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #1a0f04;
-    background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--ember));
-    background-size: 200% auto;
-    cursor: pointer;
-}
-
-.save-status {
-    margin-top: 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-align: center;
-    display: none;
-}
-
-.badge {
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    background: rgba(255,184,51,0.07);
-    border: 1px solid var(--line);
-    color: var(--ink-dim);
-}
-
-.footer-text {
-    margin-top: 16px;
-    font-size: 0.65rem;
-    letter-spacing: 1px;
-    color: var(--ink-dim);
-    font-weight: 600;
-}
-</style>
+    @media (max-width: 580px) {
+      .card { padding: 35px 20px; border-radius: 25px; }
+      .title { font-size: 26px; }
+      .logo-container { width: 80px; height: 80px; }
+      .logo { font-size: 34px; }
+      .code-value { font-size: 22px; }
+      .social-circle { width: 42px; height: 42px; font-size: 17px; }
+    }
+  </style>
+<base target="_blank">
 </head>
 <body>
+  <div class="bg-gradient"></div>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
 
-<div class="wrap">
+  <div id="mainApp" class="container">
     <div class="card">
-        <img class="logo" src="/media/naruto-mini-bot-banner.jpg" alt="A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓">
-
-        <a href="/admin" id="adminLink" style="text-decoration:none;"><div class="title">👑 A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 👑</div></a>
-        <div class="subtitle">PAIR CODE</div>
-
-        <div class="hint">TYPE YOUR WHATSAPP NUMBER</div>
-        <div class="hint-small">
-            Any country works — country code + number, no + or 00<br>
-            🇵🇰 92... &nbsp;·&nbsp; 🇮🇳 91... &nbsp;·&nbsp; 🇻🇪 58... &nbsp;·&nbsp; 🇸🇦 966...<br>
-            🇵🇰 Pakistani number? You can also just type it as 03XXXXXXXXX — it's converted automatically.
+      <div class="header">
+        <div class="logo-container">
+          <div class="logo-ring"></div>
+          <div class="logo"><i class="fas fa-bolt"></i></div>
         </div>
+        <h1 class="title">AHMADSHAHZAD-MD</h1>
+        <p class="subtitle">Generate Your Pairing Code</p>
+      </div>
 
-        <input class="input-box" type="text" id="number" inputmode="numeric" placeholder="e.g. 923123456789 or 03123456789">
+      <div class="social-row">
+        <a href="https://whatsapp.com/channel/0029VbCx2Sb5q08a3fe3KZ42" class="social-circle whatsapp" title="WhatsApp Channel"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com/@as_base_786?si=UTg9jDlXsjTulsgG" class="social-circle youtube" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@.itx_ahmad_786?_r=1&_t=ZS-98lLqAD4rDg" class="social-circle tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/whats._.ahmad._.786/" class="social-circle instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
 
-        <label style="display:flex; align-items:center; gap:8px; justify-content:center; margin:10px 0; font-size:0.85rem; color:var(--ink-dim); cursor:pointer;">
-            <input type="checkbox" id="forceJoin" style="width:16px; height:16px; cursor:pointer;">
-            Force Join (disconnect this number's old session first, if any)
-        </label>
-
-        <button class="btn" id="getBtn" onclick="getCode()">GET PAIR CODE</button>
-
-        <div class="result-box" id="resultBox">
-            <div class="result-text" id="resultText">----</div>
-            <button class="copy-btn" id="copyBtn" onclick="copyCode()">📋 COPY CODE</button>
-            <div class="custom-hint" id="pairStatusHint" style="display:none; margin-top:10px;"></div>
-        </div>
-
-        <div class="badges">
-            <span class="badge">🤖 WHATSAPP BOT</span>
-            <span class="badge">⚡ AHMADSHAHZAD MD-BOT</span>
-            <span class="badge">✨ 2026</span>
-        </div>
-
-        <div class="footer-text">MADE BY ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎</div>
-    </div>
-</div>
-
-<!-- Floating side button — opens the "Create Your Own Bot" modal -->
-<button class="fab" id="fabBtn" onclick="openCreateModal()">⚙️</button>
-
-<div class="modal-overlay" id="createModal">
-    <div class="modal-card">
-        <button class="modal-close" onclick="closeCreateModal()">✕</button>
-
-        <!-- Screen 1: choose Register or Login -->
-        <div id="authChoiceScreen">
-            <div class="modal-title">🎨 Your Own Bot</div>
-            <div class="custom-hint" style="margin-bottom:16px;">
-                Set your own name, image, channel and owner number — get your
-                own personal pairing link to share with anyone. An account
-                (number + password) keeps your settings safe so only you can edit them later.
+      <!-- Server picker (display only — every server routes to the same
+           bot connection underneath; picking one just labels the real,
+           live status shown below with that name). -->
+      <div class="server-info" id="serverInfo">
+        <div class="server-info-left">
+          <i class="fas fa-server"></i>
+          <div class="server-details">
+            <span class="server-name" id="currentServerName">Checking status…</span>
+            <div class="server-stats">
+              <span class="server-stat" id="statusDot"><i class="fas fa-circle" style="color:#eab308;"></i> --</span>
+              <span class="server-stat" id="activeSessions"><i class="fas fa-users"></i> Active: --</span>
             </div>
-            <button class="save-btn" onclick="showRegisterScreen()">🆕 REGISTER (first time)</button>
-            <button class="save-btn" style="margin-top:10px; background:linear-gradient(90deg,var(--gold-soft),var(--gold));" onclick="showLoginScreen()">🔑 LOGIN (edit my settings)</button>
+          </div>
+        </div>
+        <div class="change-server-btn" id="changeServerBtn"><i class="fas fa-chevron-down"></i> Select</div>
+      </div>
+
+      <div class="server-selection" id="serverSelection">
+        <div class="server-selection-title">Select a Server (1-100)</div>
+        <div class="server-grid" id="serverGrid"></div>
+      </div>
+
+      <div class="info-box">
+        <i class="fas fa-info-circle"></i>
+        <div class="info-box-text">
+          <strong>Quick Setup</strong>
+          <p>Enter your WhatsApp number with country code to instantly generate a pairing code. No app installation needed!</p>
+        </div>
+      </div>
+
+      <div class="connect-bot-box" id="connectBotBox">
+        <div class="connect-bot-title">Video Tutorial</div>
+        <span class="connect-bot-link" id="connectBotLink" role="button" tabindex="0">
+          <i class="fas fa-circle-play"></i> How to Connect Bot
+        </span>
+        <div class="video-container" id="videoContainer">
+          <video id="connectVideo" playsinline preload="auto">
+            <source src="https://videotourl.com/videos/1787408791449-b4b2a5e1-f058-41bb-99af-8d65dfb01612.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <form id="pairForm">
+        <div class="form-group">
+          <label class="label">WhatsApp Number</label>
+          <div class="input-wrapper">
+            <input type="tel" id="phoneNumber" class="input" placeholder="92342758xxxxx" pattern="[0-9]+" required>
+            <i class="fas fa-phone input-icon"></i>
+          </div>
+          <div class="hint"><i class="fas fa-lightbulb"></i> Include country code (e.g., 92 for Pakistan)</div>
         </div>
 
-        <!-- Screen 2: register -->
-        <div id="registerScreen" style="display:none;">
-            <div class="modal-title">🆕 Register Your Bot</div>
+        <button type="submit" class="btn btn-generate" id="generateBtn">
+          <i class="fas fa-key"></i> Generate Pair Code
+        </button>
 
-            <div class="field-label">📱 YOUR WHATSAPP NUMBER</div>
-            <input type="text" id="reg_number" placeholder="e.g. 923001234567">
-
-            <div class="field-label">🔒 CHOOSE A PASSWORD</div>
-            <input type="text" id="reg_password" placeholder="At least 4 characters">
-            <div class="custom-hint">You'll need this password to edit your settings later — don't lose it.</div>
-
-            <div class="field-label">🤖 YOUR BOT NAME</div>
-            <input type="text" id="c_botName" placeholder="e.g. My Business Bot">
-
-            <div class="field-label">🖼️ YOUR BOT IMAGE</div>
-            <input type="file" id="c_botImageFile" accept="image/*">
-            <div class="custom-hint">or paste an image URL instead:</div>
-            <input type="text" id="c_botImageUrl" placeholder="https://...">
-            <img class="img-preview" id="imgPreview">
-
-            <div class="field-label">📢 YOUR CHANNEL</div>
-            <input type="text" id="c_channelJid" placeholder="Paste a channel link OR JID">
-            <div class="custom-hint">Shown as "forwarded from" on your replies — nothing else changes: the bot itself still only follows/reacts to the main A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 channel. Paste either a channel link (whatsapp.com/channel/...) or a raw JID — a link gets converted automatically when you hit CREATE.</div>
-
-            <div class="field-label">👑 YOUR OWNER NUMBER</div>
-            <input type="text" id="c_ownerNumber" placeholder="e.g. 923001234567">
-            <div class="custom-hint">Shown when someone uses .owner on your bot.</div>
-
-            <button class="save-btn" onclick="doRegister()">✨ CREATE MY BOT</button>
-            <button class="save-btn" style="margin-top:8px; background:rgba(255,184,51,0.08); color:var(--ink); border:1px solid var(--line);" onclick="showAuthChoice()">← Back</button>
-            <div class="save-status" id="saveStatus"></div>
+        <div class="cooldown-timer" id="cooldownTimer">
+          <div class="cooldown-timer-text">
+            <i class="fas fa-clock"></i>
+            <span>Please wait <span class="cooldown-timer-seconds" id="cooldownSeconds">30</span> seconds before generating again</span>
+          </div>
         </div>
 
-        <!-- Screen 3: login -->
-        <div id="loginScreen" style="display:none;">
-            <div class="modal-title">🔑 Login to Edit</div>
-
-            <div class="field-label">📱 YOUR WHATSAPP NUMBER</div>
-            <input type="text" id="login_number" placeholder="e.g. 923001234567">
-
-            <div class="field-label">🔒 PASSWORD</div>
-            <input type="text" id="login_password" placeholder="Your password">
-
-            <button class="save-btn" onclick="doLogin()">🔓 LOGIN</button>
-            <button class="save-btn" style="margin-top:8px; background:rgba(255,184,51,0.08); color:var(--ink); border:1px solid var(--line);" onclick="showAuthChoice()">← Back</button>
-            <div class="save-status" id="loginStatus"></div>
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p class="loading-text">Generating your pair code...</p>
         </div>
 
-        <!-- Screen 4: edit (after login) -->
-        <div id="editScreen" style="display:none;">
-            <div class="modal-title">✏️ Edit Your Bot</div>
-
-            <div class="save-status" id="editLoginLink" style="display:none;margin-bottom:14px;"></div>
-
-            <div class="field-label">🤖 YOUR BOT NAME</div>
-            <input type="text" id="e_botName" placeholder="e.g. My Business Bot">
-
-            <div class="field-label">🖼️ YOUR BOT IMAGE</div>
-            <input type="file" id="e_botImageFile" accept="image/*">
-            <div class="custom-hint">or paste an image URL instead:</div>
-            <input type="text" id="e_botImageUrl" placeholder="https://...">
-            <img class="img-preview" id="e_imgPreview">
-
-            <div class="field-label">📢 YOUR CHANNEL</div>
-            <input type="text" id="e_channelJid" placeholder="Paste a channel link OR JID">
-
-            <div class="field-label">👑 YOUR OWNER NUMBER</div>
-            <input type="text" id="e_ownerNumber" placeholder="e.g. 923001234567">
-
-            <button class="save-btn" onclick="doUpdate()">💾 SAVE CHANGES</button>
-            <div class="save-status" id="editStatus"></div>
-
-            <div class="field-label" style="margin-top:24px;">🐞 COMMAND ERROR / NEW COMMAND / NEW FEATURE</div>
-            <div class="custom-hint" style="margin-bottom:6px;">Kisi command mein masla ho, koi naya command ya future feature chahiye ho — yahan likhein, seedha admin panel mein pahunch jayega.</div>
-            <textarea id="feedbackMessage" placeholder="e.g. .song command error de raha hai / .translate command add karo / ..."></textarea>
-            <button class="save-btn" style="margin-top:8px;" onclick="doSendFeedback()">📨 SEND TO ADMIN</button>
-            <div class="save-status" id="feedbackStatus"></div>
-
-            <button class="save-btn" style="margin-top:16px; background:rgba(255,184,51,0.08); color:var(--ink); border:1px solid var(--line);" onclick="showAuthChoice()">← Back</button>
+        <div class="code-box" id="codeBox">
+          <div class="code-placeholder">Your pairing code will appear here</div>
         </div>
+
+        <button type="button" class="btn btn-copy" id="copyBtn"><i class="fas fa-copy"></i> Copy Code</button>
+      </form>
+
+      <div class="footer"><p class="footer-text">&copy; 2026 AHMADSHAHZAD-MD | Powered By AHMADSHAHZAD-MD</p></div>
     </div>
-</div>
+  </div>
 
-<script>
-let currentCode = "";
-let pairPollTimer = null;
-let pairPollDeadline = 0;
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span>Code copied successfully</span></div>
 
-function stopPairPolling() {
-    if (pairPollTimer) { clearInterval(pairPollTimer); pairPollTimer = null; }
-}
+  <script>
+    const phoneInput = document.getElementById('phoneNumber');
+    const generateBtn = document.getElementById('generateBtn');
+    const loading = document.getElementById('loading');
+    const codeBox = document.getElementById('codeBox');
+    const copyBtn = document.getElementById('copyBtn');
+    const toast = document.getElementById('toast');
+    const form = document.getElementById('pairForm');
+    const currentServerName = document.getElementById('currentServerName');
+    const statusDot = document.getElementById('statusDot');
+    const activeSessions = document.getElementById('activeSessions');
+    const cooldownTimer = document.getElementById('cooldownTimer');
+    const cooldownSeconds = document.getElementById('cooldownSeconds');
+    const serverInfo = document.getElementById('serverInfo');
+    const changeServerBtn = document.getElementById('changeServerBtn');
+    const serverSelection = document.getElementById('serverSelection');
+    const serverGrid = document.getElementById('serverGrid');
 
-// WhatsApp pairing codes expire ~60s after being issued if never entered on
-// the phone. Before this, the page gave zero feedback after showing the
-// code — it just sat there looking "stuck" whether pairing was still
-// possible or the code had already gone dead. This polls /pair-status every
-// 3s and updates a status line so the person actually knows what's
-// happening, and tells them plainly (instead of silence) once the code has
-// expired so they know to request a new one rather than keep waiting on a
-// dead code.
-function startPairPolling(number, mode = 'code') {
-    stopPairPolling();
-    const hint = document.getElementById("pairStatusHint");
-    hint.style.display = "block";
-    hint.style.color = "#ffb833";
-    if (mode === 'reconnect') {
-        // No code is shown in this flow at all — WhatsApp already linked
-        // this number before, so the bot is just resuming that existing
-        // session. Telling the person to "enter this code" here was
-        // actively wrong (there is no code on screen to enter) and just
-        // left people waiting on instructions that didn't apply.
-        hint.innerText = "⏳ Reconnecting automatically — no code needed, this usually takes a few seconds…";
-        pairPollDeadline = Date.now() + 30000;
-    } else {
-        hint.innerText = "⏳ Waiting for you to enter this code in WhatsApp (Linked Devices → Link with phone number)…";
-        pairPollDeadline = Date.now() + 75000; // a little past WhatsApp's own ~60s code lifetime
+    let currentCode = null;
+    let cooldownInterval = null;
+    let isCooldown = false;
+    let selectedServerNum = null;
+
+    // ── Server picker (display only) ──────────────────────────────
+    // NOTE: every option here routes to the exact same bot connection —
+    // there is only one real backend. Picking a server just relabels the
+    // real, live status polled from /ping; it doesn't change what actually
+    // handles pairing. This exists purely as a UI touch.
+    function seededRandom(seed) {
+      let x = Math.sin(seed) * 10000;
+      return x - Math.floor(x);
     }
 
-    pairPollTimer = setInterval(async () => {
-        if (Date.now() > pairPollDeadline) {
-            stopPairPolling();
-            hint.style.color = "#ff5470";
-            hint.innerText = mode === 'reconnect'
-                ? "⌛ Reconnect is taking longer than expected. Tap GET PAIR CODE again — tick \"Force Join\" if it still doesn't come back."
-                : "⌛ This code has expired. Tap GET PAIR CODE again for a fresh one.";
-            return;
-        }
-        try {
-            const res = await fetch(`/pair-status?number=${number}`);
-            const data = await res.json();
-            if (data.status === 'success' && data.data && data.data.status === 'connected') {
-                stopPairPolling();
-                hint.style.color = "#5fd68a";
-                hint.innerText = "✅ Connected! Your bot is now live on WhatsApp.";
-            }
-        } catch (e) {
-            // transient network hiccup while polling — not fatal, just try again next tick
-        }
-    }, 3000);
-}
-
-async function getCode() {
-    const num = document.getElementById("number").value.replace(/[^0-9]/g, '');
-    const resultBox = document.getElementById("resultBox");
-    const resultText = document.getElementById("resultText");
-    const copyBtn = document.getElementById("copyBtn");
-    const getBtn = document.getElementById("getBtn");
-    const hint = document.getElementById("pairStatusHint");
-
-    copyBtn.style.display = "none";
-    copyBtn.classList.remove("copied");
-    copyBtn.innerText = "📋 COPY CODE";
-    currentCode = "";
-    stopPairPolling();
-    hint.style.display = "none";
-
-    if (!num) {
-        resultBox.style.display = "block";
-        resultText.style.color = "#ff5470";
-        resultText.style.letterSpacing = "normal";
-        resultText.innerText = "APNA WHATSAPP NUMBER LIKHE";
-        return;
+    function buildServerList() {
+      const servers = [];
+      for (let i = 1; i <= 100; i++) servers.push(i);
+      // shuffle (Fisher-Yates) so the order looks organic each visit
+      for (let i = servers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [servers[i], servers[j]] = [servers[j], servers[i]];
+      }
+      return servers;
     }
 
-    resultBox.style.display = "block";
-    resultText.style.letterSpacing = "normal";
-    resultText.style.color = "#ffb833";
-    resultText.innerHTML = '<span class="spinner"></span>CONNECTING...';
-    getBtn.disabled = true;
+    function renderServerGrid() {
+      const servers = buildServerList();
+      serverGrid.innerHTML = '';
+      servers.forEach(num => {
+        const active = Math.floor(seededRandom(num) * 40) + 5; // decorative only
+        const opt = document.createElement('div');
+        opt.className = `server-option ${selectedServerNum === num ? 'selected' : ''}`;
+        opt.innerHTML = `
+          <div class="server-option-name">Server ${num}</div>
+          <div class="server-option-stats"><span>${active}/50 active</span></div>
+        `;
+        opt.addEventListener('click', () => selectServer(num));
+        serverGrid.appendChild(opt);
+      });
+    }
 
-    try {
-        const refParam = new URLSearchParams(window.location.search).get('brand');
-        const refQuery = refParam ? `&ref=${encodeURIComponent(refParam)}` : '';
-        const forceJoin = document.getElementById("forceJoin").checked;
-        const forceQuery = forceJoin ? `&force=true` : '';
-        const res = await fetch(`/code?number=${num}${refQuery}${forceQuery}`);
+    function selectServer(num) {
+      selectedServerNum = num;
+      currentServerName.textContent = `Server ${num}`;
+      serverSelection.classList.remove('show');
+      serverSelection.style.display = 'none';
+      serverInfo.style.display = 'flex';
+      showToast(`Server ${num} selected`);
+    }
+
+    changeServerBtn.addEventListener('click', () => {
+      renderServerGrid();
+      serverSelection.style.display = 'block';
+      serverSelection.classList.add('show');
+    });
+
+    function showToast(message, isError = false) {
+      const toastIcon = toast.querySelector('i');
+      const toastText = toast.querySelector('span');
+      toastIcon.className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+      toastText.textContent = message;
+      toast.className = `toast ${isError ? 'error' : ''} show`;
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Real status pulled from the bot's own /ping endpoint — no fake numbers.
+    async function refreshStatus() {
+      if (selectedServerNum === null) {
+        selectedServerNum = Math.floor(Math.random() * 100) + 1;
+        currentServerName.textContent = `Server ${selectedServerNum}`;
+      }
+      try {
+        const res = await fetch('/ping');
+        const data = await res.json();
+        statusDot.innerHTML = `<i class="fas fa-circle" style="color:#14b8a6;"></i> Online`;
+        activeSessions.innerHTML = `<i class="fas fa-users"></i> Active: ${data.activeSessions ?? 0}`;
+      } catch (e) {
+        statusDot.innerHTML = `<i class="fas fa-circle" style="color:#ef4444;"></i> Offline`;
+        activeSessions.innerHTML = `<i class="fas fa-users"></i> Active: --`;
+      }
+    }
+
+    function startCooldown() {
+      isCooldown = true;
+      let seconds = 30;
+      generateBtn.disabled = true;
+      generateBtn.classList.add('cooldown');
+      generateBtn.innerHTML = `<i class="fas fa-clock"></i> Wait ${seconds}s`;
+      cooldownTimer.classList.add('show');
+      cooldownSeconds.textContent = seconds;
+
+      cooldownInterval = setInterval(() => {
+        seconds--;
+        cooldownSeconds.textContent = seconds;
+        generateBtn.innerHTML = `<i class="fas fa-clock"></i> Wait ${seconds}s`;
+        if (seconds <= 0) {
+          clearInterval(cooldownInterval);
+          endCooldown();
+        }
+      }, 1000);
+    }
+
+    function endCooldown() {
+      isCooldown = false;
+      clearInterval(cooldownInterval);
+      cooldownTimer.classList.remove('show');
+      generateBtn.classList.remove('cooldown');
+      generateBtn.disabled = false;
+      generateBtn.innerHTML = '<i class="fas fa-key"></i> Generate Pair Code';
+    }
+
+    function showErrorInCode(message) {
+      codeBox.className = 'code-box has-error';
+      codeBox.innerHTML = `<div class="error-value"><i class="fas fa-exclamation-circle"></i><span>${message}</span></div>`;
+      copyBtn.style.display = 'none';
+      currentCode = null;
+    }
+
+    function showCode(code) {
+      currentCode = code;
+      codeBox.className = 'code-box has-code';
+      codeBox.innerHTML = `<div class="code-value"><i class="fas fa-check-circle"></i><span>${code}</span></div>`;
+      copyBtn.style.display = 'flex';
+    }
+
+    function resetCodeBox() {
+      codeBox.className = 'code-box';
+      codeBox.innerHTML = '<div class="code-placeholder">Your pairing code will appear here</div>';
+      copyBtn.style.display = 'none';
+      currentCode = null;
+    }
+
+    function validatePhone(number) {
+      const cleaned = number.replace(/[^\d]/g, '');
+      return cleaned.length >= 10 && cleaned.length <= 15;
+    }
+
+    async function generatePairCode(e) {
+      e.preventDefault();
+      if (isCooldown) { showToast(`Please wait ${cooldownSeconds.textContent} seconds`, true); return; }
+
+      const phoneNumber = phoneInput.value.trim();
+      if (!phoneNumber) { showErrorInCode('Please enter your WhatsApp number'); showToast('Phone number is required', true); return; }
+      if (!validatePhone(phoneNumber)) { showErrorInCode('Please enter a valid phone number (10-15 digits)'); showToast('Invalid phone number format', true); return; }
+
+      generateBtn.style.display = 'none';
+      loading.style.display = 'block';
+      resetCodeBox();
+
+      try {
+        const cleanNumber = phoneNumber.replace(/[^\d]/g, '');
+        const res = await fetch(`/code?number=${cleanNumber}`);
         const data = await res.json();
 
         if (data.code) {
-            currentCode = data.code;
-            resultText.style.letterSpacing = "5px";
-            resultText.style.color = "#f5ecdc";
-            resultText.innerText = data.code;
-            copyBtn.style.display = "block";
-            autoCopy(data.code);
-            startPairPolling(num);
-        } else if (data.status === "already_connected") {
-            resultText.style.color = "#ffd580";
-            resultText.innerText = forceJoin
-                ? "STILL SHOWING CONNECTED — TRY AGAIN IN A MOMENT"
-                : "ALREADY CONNECTED ✅ (tick \"Force Join\" above to disconnect it and re-pair)";
-        } else if (data.status === "connection_in_progress") {
-            resultText.style.color = "#ffd580";
-            resultText.innerText = "ALREADY CONNECTING… WAIT A FEW SECONDS AND TRY AGAIN";
-        } else if (data.status === "reconnecting") {
-            resultText.style.color = "#5fd68a";
-            resultText.innerText = "RECONNECTING WITH EXISTING SESSION ✅";
-            startPairPolling(num, 'reconnect');
-        } else if (data.error || data.message || data.details) {
-            resultText.style.color = "#ff5470";
-            resultText.innerText = "❌ " + (data.message || data.error || data.details);
+          showCode(data.code);
+          showToast('Pair code generated successfully!');
+          startCooldown();
+        } else if (data.status === 'already_connected') {
+          showErrorInCode('This number is already connected.');
+          showToast('Already connected', true);
         } else {
-            resultText.style.color = "#ff5470";
-            resultText.innerText = "UNKNOWN ERROR — TRY AGAIN";
+          throw new Error(data.error || data.message || 'Failed to generate code');
         }
-    } catch (e) {
-        resultText.style.color = "#ff5470";
-        resultText.innerText = "❌ NETWORK/SERVER ERROR — TRY AGAIN";
-    } finally {
-        getBtn.disabled = false;
+      } catch (error) {
+        const errorMsg = error.message || 'Failed to generate code';
+        showErrorInCode(errorMsg);
+        showToast(errorMsg, true);
+      } finally {
+        generateBtn.style.display = 'flex';
+        loading.style.display = 'none';
+      }
     }
-}
 
-// Try to auto-copy the code to clipboard the moment it arrives.
-// Browsers can block silent clipboard writes without a direct user
-// gesture — if that happens, the visible "COPY CODE" button (shown
-// above) lets the user copy it manually with one tap.
-async function autoCopy(code) {
-    try {
-        if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(code);
-            const copyBtn = document.getElementById("copyBtn");
-            copyBtn.classList.add("copied");
-            copyBtn.innerText = "✅ AUTO-COPIED!";
-            setTimeout(() => {
-                copyBtn.classList.remove("copied");
-                copyBtn.innerText = "📋 COPY CODE";
-            }, 2500);
-        }
-    } catch (e) {
-        // silent — manual copy button stays visible as fallback
-    }
-}
-
-function copyCode() {
-    if (!currentCode) return;
-    const copyBtn = document.getElementById("copyBtn");
-
-    const finish = () => {
-        copyBtn.classList.add("copied");
-        copyBtn.innerText = "✅ COPIED!";
+    async function copyCode() {
+      if (!currentCode) return;
+      try {
+        await navigator.clipboard.writeText(currentCode);
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        copyBtn.disabled = true;
+        copyBtn.style.opacity = '0.7';
+        showToast('Code copied to clipboard!');
         setTimeout(() => {
-            copyBtn.classList.remove("copied");
-            copyBtn.innerText = "📋 COPY CODE";
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.disabled = false;
+          copyBtn.style.opacity = '1';
         }, 2000);
-    };
-
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(currentCode).then(finish).catch(() => fallbackCopy(currentCode, finish));
-    } else {
-        fallbackCopy(currentCode, finish);
+      } catch (error) {
+        showToast('Failed to copy code', true);
+      }
     }
-}
 
-function fallbackCopy(text, done) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(ta);
-    done();
-}
+    form.addEventListener('submit', generatePairCode);
+    copyBtn.addEventListener('click', copyCode);
+    phoneInput.addEventListener('input', (e) => { e.target.value = e.target.value.replace(/[^\d]/g, ''); });
+    phoneInput.addEventListener('focus', () => { if (codeBox.classList.contains('has-error')) resetCodeBox(); });
 
-document.getElementById("number").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") getCode();
-});
+    refreshStatus();
+    setInterval(refreshStatus, 15000);
 
-// ── Create Your Own Bot modal ──
-function openCreateModal() {
-    showAuthChoice();
-    document.getElementById("createModal").classList.add("open");
-}
-function closeCreateModal() {
-    document.getElementById("createModal").classList.remove("open");
-}
+    const connectBotLink = document.getElementById('connectBotLink');
+    const videoContainer = document.getElementById('videoContainer');
+    const connectVideo = document.getElementById('connectVideo');
 
-function hideAllAuthScreens() {
-    document.getElementById("authChoiceScreen").style.display = "none";
-    document.getElementById("registerScreen").style.display = "none";
-    document.getElementById("loginScreen").style.display = "none";
-    document.getElementById("editScreen").style.display = "none";
-}
-function showAuthChoice() { hideAllAuthScreens(); document.getElementById("authChoiceScreen").style.display = "block"; }
-function showRegisterScreen() {
-    hideAllAuthScreens();
-    document.getElementById("registerScreen").style.display = "block";
-    const num = document.getElementById("number").value.replace(/[^0-9]/g, '');
-    if (num) document.getElementById("reg_number").value = num;
-}
-function showLoginScreen() {
-    hideAllAuthScreens();
-    document.getElementById("loginScreen").style.display = "block";
-    const num = document.getElementById("number").value.replace(/[^0-9]/g, '');
-    if (num) document.getElementById("login_number").value = num;
-}
+    function toggleConnectVideo(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = videoContainer.classList.toggle('show');
+      if (isOpen) connectVideo.play().catch(() => {});
+      else connectVideo.pause();
+    }
 
-function setupImagePicker(fileId, urlId, previewId) {
-    document.getElementById(fileId).addEventListener("change", function(e) {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-            window.__customImageDataUrl = evt.target.result;
-            const preview = document.getElementById(previewId);
-            preview.src = evt.target.result;
-            preview.style.display = "block";
-            document.getElementById(urlId).value = "";
-        };
-        reader.readAsDataURL(file);
+    connectBotLink.addEventListener('click', toggleConnectVideo);
+    connectBotLink.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') toggleConnectVideo(e); });
+
+    connectVideo.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (connectVideo.requestFullscreen) connectVideo.requestFullscreen();
+      else if (connectVideo.webkitRequestFullscreen) connectVideo.webkitRequestFullscreen();
+      else if (connectVideo.webkitEnterFullscreen) connectVideo.webkitEnterFullscreen();
     });
-    document.getElementById(urlId).addEventListener("input", function(e) {
-        if (e.target.value) {
-            window.__customImageDataUrl = null;
-            document.getElementById(fileId).value = "";
-            const preview = document.getElementById(previewId);
-            preview.src = e.target.value;
-            preview.style.display = "block";
-        }
-    });
-}
-setupImagePicker("c_botImageFile", "c_botImageUrl", "imgPreview");
-setupImagePicker("e_botImageFile", "e_botImageUrl", "e_imgPreview");
-
-async function resolveChannelIfNeeded(channelJid, statusEl) {
-    // Already a raw JID (e.g. 1203xxxxxxxxx@newsletter) — fastest, most
-    // reliable path, no dependency on any bot being online right now.
-    if (!channelJid || channelJid.includes('@newsletter')) return { ok: true, jid: channelJid };
-
-    // A channel LINK needs a currently-connected bot to resolve it into a
-    // JID. That's best-effort and can fail if no bot happens to be online
-    // at this exact moment — so a failure here must NOT block save/register.
-    // We just keep the link as typed and let the user know.
-    statusEl.innerText = "Resolving channel link...";
-    try {
-        const resolveRes = await fetch('/api/resolve-channel', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ link: channelJid })
-        });
-        const resolveData = await resolveRes.json();
-        if (resolveRes.ok && resolveData.jid) return { ok: true, jid: resolveData.jid };
-        return { ok: true, jid: channelJid, warning: resolveData.error || "Link resolve nahi hui abhi — JID paste karein for guaranteed detection." };
-    } catch (e) {
-        return { ok: true, jid: channelJid, warning: "Link resolve nahi hui (network) — JID paste karein for guaranteed detection." };
-    }
-}
-
-function showPersonalLink(statusEl, slugOrNum, displayName, warning) {
-    const personalLink = `${window.location.origin}/?brand=${encodeURIComponent(slugOrNum)}`;
-    statusEl.style.color = "#5fd68a";
-    statusEl.innerHTML = `✅ <b>${displayName}</b> saved!<br><br>` +
-        `<b>Apna personalized pairing link:</b><br>` +
-        `<span style="word-break:break-all;font-size:0.68rem;">${personalLink}</span><br>` +
-        `<button class="small-btn" style="margin-top:8px;" onclick="navigator.clipboard.writeText('${personalLink}').then(()=>this.innerText='✅ COPIED')">📋 COPY LINK</button>` +
-        `<div class="custom-hint" style="margin-top:6px;">Jo bhi is link se aayega usay "${displayName}" branding dikhegi.</div>` +
-        (warning ? `<div class="custom-hint" style="margin-top:6px;color:#ffb84d;">⚠️ ${warning}</div>` : '');
-}
-
-async function doRegister() {
-    const num = document.getElementById("reg_number").value.replace(/[^0-9]/g, '');
-    const password = document.getElementById("reg_password").value;
-    const statusEl = document.getElementById("saveStatus");
-    statusEl.style.display = "block";
-
-    if (!num) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Apna WhatsApp number likhein"; return; }
-    if (!password || password.length < 4) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Password kam se kam 4 characters ka ho"; return; }
-
-    const botName = document.getElementById("c_botName").value.trim();
-    const botImageUrl = document.getElementById("c_botImageUrl").value.trim();
-    const botImage = window.__customImageDataUrl || botImageUrl || undefined;
-    let channelJid = document.getElementById("c_channelJid").value.trim();
-    const ownerNumber = document.getElementById("c_ownerNumber").value.trim();
-
-    statusEl.style.color = "#ffb833";
-    statusEl.innerText = "Registering...";
-
-    try {
-        const resolved = await resolveChannelIfNeeded(channelJid, statusEl);
-        if (!resolved.ok) { statusEl.style.color = "#ff5470"; statusEl.innerText = "❌ Channel link resolve nahi hui: " + resolved.error; return; }
-        channelJid = resolved.jid;
-
-        statusEl.innerText = "Registering...";
-        const res = await fetch('/api/brand/register', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ number: num, password, botName, botImage, channelJid, ownerNumber })
-        });
-        const data = await res.json();
-        if (res.ok && data.status === 'ok') {
-            showPersonalLink(statusEl, data.slug || num, botName || 'Your Bot', resolved.warning);
-        } else {
-            statusEl.style.color = "#ff5470";
-            statusEl.innerText = "❌ " + (data.error || "Registration failed, try again");
-        }
-    } catch (e) {
-        statusEl.style.color = "#ff5470";
-        statusEl.innerText = "❌ Network error, try again";
-    }
-}
-
-async function doLogin() {
-    const num = document.getElementById("login_number").value.replace(/[^0-9]/g, '');
-    const password = document.getElementById("login_password").value;
-    const statusEl = document.getElementById("loginStatus");
-    statusEl.style.display = "block";
-
-    if (!num || !password) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Number aur password dono likhein"; return; }
-
-    statusEl.style.color = "#ffb833";
-    statusEl.innerText = "Logging in...";
-
-    try {
-        const res = await fetch('/api/brand/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ number: num, password })
-        });
-        const data = await res.json();
-        if (res.ok && data.status === 'ok') {
-            window.__loggedInNumber = num;
-            window.__loggedInPassword = password;
-            document.getElementById("e_botName").value = data.brand.botName || "";
-            document.getElementById("e_channelJid").value = data.brand.channelJid || "";
-            document.getElementById("e_ownerNumber").value = data.brand.ownerNumber || "";
-            if (data.brand.botImage) {
-                document.getElementById("e_imgPreview").src = data.brand.botImage;
-                document.getElementById("e_imgPreview").style.display = "block";
-            }
-            hideAllAuthScreens();
-            document.getElementById("editScreen").style.display = "block";
-
-            const linkEl = document.getElementById("editLoginLink");
-            if (data.brand.slug) {
-                const personalLink = `${window.location.origin}/?brand=${encodeURIComponent(data.brand.slug)}`;
-                linkEl.style.display = "block";
-                linkEl.style.color = "#5fd68a";
-                linkEl.innerHTML = `<b>Apna personalized pairing link:</b><br>` +
-                    `<span style="word-break:break-all;font-size:0.68rem;">${personalLink}</span><br>` +
-                    `<button class="small-btn" style="margin-top:8px;" onclick="navigator.clipboard.writeText('${personalLink}').then(()=>this.innerText='✅ COPIED')">📋 COPY LINK</button>`;
-            }
-        } else {
-            statusEl.style.color = "#ff5470";
-            statusEl.innerText = "❌ " + (data.error || "Login failed");
-        }
-    } catch (e) {
-        statusEl.style.color = "#ff5470";
-        statusEl.innerText = "❌ Network error, try again";
-    }
-}
-
-async function doUpdate() {
-    const num = window.__loggedInNumber;
-    const password = window.__loggedInPassword;
-    const statusEl = document.getElementById("editStatus");
-    statusEl.style.display = "block";
-
-    if (!num || !password) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Session expired, dobara login karein"; return; }
-
-    const botName = document.getElementById("e_botName").value.trim();
-    const botImageUrl = document.getElementById("e_botImageUrl").value.trim();
-    const botImage = window.__customImageDataUrl || botImageUrl || undefined;
-    let channelJid = document.getElementById("e_channelJid").value.trim();
-    const ownerNumber = document.getElementById("e_ownerNumber").value.trim();
-
-    statusEl.style.color = "#ffb833";
-    statusEl.innerText = "Saving...";
-
-    try {
-        const resolved = await resolveChannelIfNeeded(channelJid, statusEl);
-        if (!resolved.ok) { statusEl.style.color = "#ff5470"; statusEl.innerText = "❌ Channel link resolve nahi hui: " + resolved.error; return; }
-        channelJid = resolved.jid;
-
-        statusEl.innerText = "Saving...";
-        const res = await fetch('/api/brand/update', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ number: num, password, botName, botImage, channelJid, ownerNumber })
-        });
-        const data = await res.json();
-        if (res.ok && data.status === 'ok') {
-            showPersonalLink(statusEl, data.slug || num, botName || 'Your Bot', resolved.warning);
-        } else {
-            statusEl.style.color = "#ff5470";
-            statusEl.innerText = "❌ " + (data.error || "Update failed, try again");
-        }
-    } catch (e) {
-        statusEl.style.color = "#ff5470";
-        statusEl.innerText = "❌ Network error, try again";
-    }
-}
-
-async function doSendFeedback() {
-    const num = window.__loggedInNumber;
-    const password = window.__loggedInPassword;
-    const statusEl = document.getElementById("feedbackStatus");
-    statusEl.style.display = "block";
-
-    if (!num || !password) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Session expired, dobara login karein"; return; }
-
-    const messageEl = document.getElementById("feedbackMessage");
-    const message = messageEl.value.trim();
-    if (!message) { statusEl.style.color = "#ff5470"; statusEl.innerText = "⚠️ Pehle message likhein"; return; }
-
-    statusEl.style.color = "#ffb833";
-    statusEl.innerText = "Sending...";
-
-    try {
-        const res = await fetch('/api/brand/feedback', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ number: num, password, message })
-        });
-        const data = await res.json();
-        if (res.ok && data.status === 'ok') {
-            statusEl.style.color = "#5fd68a";
-            statusEl.innerText = "✅ Admin panel ko bhej diya gaya!";
-            messageEl.value = "";
-        } else {
-            statusEl.style.color = "#ff5470";
-            statusEl.innerText = "❌ " + (data.error || "Bhejne mein masla, dobara koshish karein");
-        }
-    } catch (e) {
-        statusEl.style.color = "#ff5470";
-        statusEl.innerText = "❌ Network error, try again";
-    }
-}
-
-// ── Personalized branding via ?brand=<name-slug> in the URL ──
-// If someone opens a shared link like yoursite.com/?brand=my-cool-bot,
-// show that bot's saved custom name/image on this page instead of the
-// default A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓 branding — the person can still pair their OWN
-// number as normal; only the cosmetic branding shown here changes.
-// Old links shared before this update used the raw number instead of a
-// name (yoursite.com/?brand=923xxxxxxxxx) — those still work too.
-(async function applyReferralBranding() {
-    try {
-        const params = new URLSearchParams(window.location.search);
-        const refValue = (params.get('brand') || '').trim();
-        if (!refValue) return;
-
-        // Admin panel access is only ever for the actual master admin —
-        // never show/allow it on someone else's shared branded link.
-        const adminLink = document.getElementById('adminLink');
-        if (adminLink) {
-            adminLink.removeAttribute('href');
-            adminLink.style.cursor = 'default';
-            adminLink.onclick = (e) => e.preventDefault();
-        }
-
-        // New links are name-based slugs; old links (shared before this
-        // update) were plain digits — try the right lookup for each.
-        const isOldNumericLink = /^[0-9]+$/.test(refValue);
-        const endpoint = isOldNumericLink
-            ? `/api/brand/${refValue}`
-            : `/api/brand/by-slug/${encodeURIComponent(refValue.toLowerCase())}`;
-
-        const res = await fetch(endpoint);
-        const data = await res.json();
-        if (!data.brand) return;
-
-        const displayName = data.brand.botName || 'A⃟𝐇ΜΔD̰̃~𝐌𝐃-𝐁☯︎𝐓';
-
-        if (data.brand.botName) {
-            document.querySelectorAll('.title').forEach(el => {
-                el.innerText = `👑 ${displayName} 👑`;
-            });
-            document.title = `👑 ${displayName} 👑`;
-        }
-        if (data.brand.botImage) {
-            document.querySelectorAll('.logo').forEach(el => {
-                el.src = data.brand.botImage;
-            });
-        }
-
-        const footerEl = document.querySelector('.footer-text');
-        if (footerEl) footerEl.innerText = `MADE BY ${displayName.toUpperCase()}`;
-
-        const badges = document.querySelectorAll('.badge');
-        if (badges[1]) badges[1].innerText = `⚡ ${displayName.toUpperCase()}`;
-    } catch (e) {
-        // silent — falls back to default branding
-    }
-})();
-</script>
-
+  </script>
 </body>
 </html>

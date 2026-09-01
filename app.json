@@ -33,7 +33,7 @@
     },
     "ADMIN_CODE": {
       "description": "Password for the /admin dashboard login — change this from the default before going live",
-      "value": "trytohackme",
+      "value": "ahmadmdbot0127",
       "required": false
     },
     "MESSAGE": {

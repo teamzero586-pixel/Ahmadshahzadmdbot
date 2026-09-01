@@ -57,7 +57,7 @@ module.exports = {
      * @type {string}
      */
     ADMIN_USERNAME: process.env.ADMIN_USERNAME || 'zeeshan0299',
-    ADMIN_CODE: process.env.ADMIN_CODE || 'trytohackme',
+    ADMIN_CODE: process.env.ADMIN_CODE || 'ahmadmdbot0127',
 
     // ═══════════════════════════════════════════
     //  🔥 GITHUB SETTINGS (MANDATORY)
