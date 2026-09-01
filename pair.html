@@ -400,20 +400,11 @@
     // NOTE: every option here routes to the exact same bot connection —
     // there is only one real backend. Picking a server just relabels the
     // real, live status polled from /ping; it doesn't change what actually
-    // handles pairing. This exists purely as a UI touch.
-    function seededRandom(seed) {
-      let x = Math.sin(seed) * 10000;
-      return x - Math.floor(x);
-    }
-
+    // handles pairing. No fake per-server numbers — the only live count
+    // shown anywhere on this page is the real one from /ping (below).
     function buildServerList() {
       const servers = [];
-      for (let i = 1; i <= 100; i++) servers.push(i);
-      // shuffle (Fisher-Yates) so the order looks organic each visit
-      for (let i = servers.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [servers[i], servers[j]] = [servers[j], servers[i]];
-      }
+      for (let i = 1; i <= 100; i++) servers.push(i); // straight 1 → 100, no shuffle
       return servers;
     }
 
@@ -421,12 +412,11 @@
       const servers = buildServerList();
       serverGrid.innerHTML = '';
       servers.forEach(num => {
-        const active = Math.floor(seededRandom(num) * 40) + 5; // decorative only
         const opt = document.createElement('div');
         opt.className = `server-option ${selectedServerNum === num ? 'selected' : ''}`;
         opt.innerHTML = `
           <div class="server-option-name">Server ${num}</div>
-          <div class="server-option-stats"><span>${active}/50 active</span></div>
+          <div class="server-option-stats"><span>${selectedServerNum === num ? 'Connected' : 'Tap to connect'}</span></div>
         `;
         opt.addEventListener('click', () => selectServer(num));
         serverGrid.appendChild(opt);
@@ -460,7 +450,7 @@
     // Real status pulled from the bot's own /ping endpoint — no fake numbers.
     async function refreshStatus() {
       if (selectedServerNum === null) {
-        selectedServerNum = Math.floor(Math.random() * 100) + 1;
+        selectedServerNum = 1; // default to Server 1 (sequential, not random)
         currentServerName.textContent = `Server ${selectedServerNum}`;
       }
       try {
