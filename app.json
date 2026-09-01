@@ -1,0 +1,45 @@
+{
+  "name": "AHMADSHAHZAD MD-BOT",
+  "description": "WhatsApp bot with pairing-code login, group admin tools, and an admin dashboard — powered by ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎",
+  "logo": "",
+  "repository": "https://github.com/YOUR-GITHUB-USERNAME/AhmadShahzad-MD-Bot",
+  "keywords": ["AHMADSHAHZAD MD-BOT", "whatsapp-bot"],
+  "stack": "heroku-22",
+  "success_url": "/",
+  "buildpacks": [
+    { "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" }
+  ],
+  "formation": {
+    "web": { "quantity": 1, "size": "eco" }
+  },
+  "env": {
+    "MONGODB_URI": {
+      "description": "REQUIRED — your MongoDB connection string (mongodb+srv://...). Without this, sessions won't survive a dyno restart and the bot will need re-pairing constantly.",
+      "required": true
+    },
+    "OWNER_NUMBER": {
+      "description": "Your WhatsApp number(s) with country code, no + or spaces (comma-separated for multiple owners), e.g. 923001234567",
+      "required": true
+    },
+    "OWNER_NAME": {
+      "description": "Name shown as the bot owner",
+      "value": "✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎",
+      "required": false
+    },
+    "ADMIN_USERNAME": {
+      "description": "Username for the /admin dashboard login",
+      "value": "zeeshan0299",
+      "required": false
+    },
+    "ADMIN_CODE": {
+      "description": "Password for the /admin dashboard login — change this from the default before going live",
+      "value": "trytohackme",
+      "required": false
+    },
+    "MESSAGE": {
+      "description": "Message attached with the session ID",
+      "value": "⚡ BY || ✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎ ⚡",
+      "required": false
+    }
+  }
+}
