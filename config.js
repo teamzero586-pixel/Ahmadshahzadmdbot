@@ -45,18 +45,14 @@ module.exports = {
     //  🛡️ ADMIN PANEL
     // ═══════════════════════════════════════════
     /**
-     * @description Username + passcode required to open the /admin dashboard.
-     * SECURITY: better to override these via Heroku Config Vars instead of
-     * relying on the hardcoded fallbacks below — Config Vars never appear in
+     * @description Password required to open the /admin dashboard.
+     * SECURITY: better to override this via a Heroku Config Var instead of
+     * relying on the hardcoded fallback below — Config Vars never appear in
      * your GitHub repo or in any HTML the browser can see.
      *   Heroku Dashboard → your app → Settings → "Reveal Config Vars"
-     *   → Add: ADMIN_USERNAME = <yours>, ADMIN_CODE = <a strong password>
-     * Note: "trytohackme" is a fine placeholder to get started, but it's
-     * exactly the kind of password someone will actually try — swap it for
-     * something real once things are working.
+     *   → Add: ADMIN_CODE = <a strong password>
      * @type {string}
      */
-    ADMIN_USERNAME: process.env.ADMIN_USERNAME || 'zeeshan0299',
     ADMIN_CODE: process.env.ADMIN_CODE || 'ahmadmdbot0127',
 
     // ═══════════════════════════════════════════

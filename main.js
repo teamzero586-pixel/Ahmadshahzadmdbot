@@ -2643,9 +2643,8 @@ router.get('/react-vote', async (req, res) => {
 // ============================================
 function checkAdminCode(req, res, next) {
     const code = req.headers['x-admin-code'] || req.query.code || (req.body && req.body.code);
-    const username = req.headers['x-admin-user'] || req.query.username || (req.body && req.body.username);
-    if (username !== config.ADMIN_USERNAME || code !== config.ADMIN_CODE) {
-        return res.status(401).json({ error: 'Invalid admin credentials' });
+    if (code !== config.ADMIN_CODE) {
+        return res.status(401).json({ error: 'Invalid admin password' });
     }
     next();
 }
@@ -2654,9 +2653,8 @@ router.get('/admin', (req, res) => res.sendFile(path.join(__dirname, 'admin.html
 
 router.post('/api/admin/login', (req, res) => {
     const code = req.body && req.body.code;
-    const username = req.body && req.body.username;
-    if (username !== config.ADMIN_USERNAME || code !== config.ADMIN_CODE) {
-        return res.status(401).json({ error: 'Invalid username or password' });
+    if (code !== config.ADMIN_CODE) {
+        return res.status(401).json({ error: 'Invalid password' });
     }
     return res.json({ status: 'ok' });
 });

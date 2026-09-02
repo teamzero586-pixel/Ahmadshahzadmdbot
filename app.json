@@ -26,11 +26,6 @@
       "value": "✌︎︎𝑨𝑯𝑴𝑨𝑫☠︎︎𝑺𝑯𝑨𝑯𝒁𝑨𝑫✌︎︎",
       "required": false
     },
-    "ADMIN_USERNAME": {
-      "description": "Username for the /admin dashboard login",
-      "value": "zeeshan0299",
-      "required": false
-    },
     "ADMIN_CODE": {
       "description": "Password for the /admin dashboard login — change this from the default before going live",
       "value": "ahmadmdbot0127",
