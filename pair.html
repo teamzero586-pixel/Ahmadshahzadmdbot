@@ -229,6 +229,13 @@
     }
     .code-box.has-code { border-color: rgba(20, 184, 166, 0.4); background: rgba(20, 184, 166, 0.04); }
     .code-box.has-error { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.04); }
+    .code-box.has-info { border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.06); }
+    .info-value { color: #60a5fa; font-size: 14px; display: flex; align-items: center; gap: 10px; text-align: left; }
+    .btn-force {
+      background: rgba(239, 68, 68, 0.08); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25);
+      display: none; margin-bottom: 15px;
+    }
+    .btn-force:hover { background: rgba(239, 68, 68, 0.14); transform: translateY(-2px); }
     .code-placeholder { color: rgba(255, 255, 255, 0.25); font-size: 14px; }
     .code-value { font-size: 24px; font-weight: 700; letter-spacing: 3px; color: #f97316; font-family: 'Courier New', monospace; display: flex; align-items: center; gap: 12px; }
     .code-value i { font-size: 22px; color: #22c55e; }
@@ -365,6 +372,7 @@
         </div>
 
         <button type="button" class="btn btn-copy" id="copyBtn"><i class="fas fa-copy"></i> Copy Code</button>
+        <button type="button" class="btn btn-force" id="forceBtn"><i class="fas fa-rotate"></i> Force New Code (resets this number's session)</button>
       </form>
 
       <div class="footer"><p class="footer-text">&copy; 2026 AHMADSHAHZAD-MD | Powered By AHMADSHAHZAD-MD</p></div>
@@ -379,6 +387,7 @@
     const loading = document.getElementById('loading');
     const codeBox = document.getElementById('codeBox');
     const copyBtn = document.getElementById('copyBtn');
+    const forceBtn = document.getElementById('forceBtn');
     const toast = document.getElementById('toast');
     const form = document.getElementById('pairForm');
     const currentServerName = document.getElementById('currentServerName');
@@ -507,10 +516,18 @@
       copyBtn.style.display = 'flex';
     }
 
+    function showInfoInCode(message) {
+      codeBox.className = 'code-box has-info';
+      codeBox.innerHTML = `<div class="info-value"><i class="fas fa-circle-info"></i><span>${message}</span></div>`;
+      copyBtn.style.display = 'none';
+      currentCode = null;
+    }
+
     function resetCodeBox() {
       codeBox.className = 'code-box';
       codeBox.innerHTML = '<div class="code-placeholder">Your pairing code will appear here</div>';
       copyBtn.style.display = 'none';
+      forceBtn.style.display = 'none';
       currentCode = null;
     }
 
@@ -518,6 +535,8 @@
       const cleaned = number.replace(/[^\d]/g, '');
       return cleaned.length >= 10 && cleaned.length <= 15;
     }
+
+    let lastAttemptedNumber = null;
 
     async function generatePairCode(e) {
       e.preventDefault();
@@ -533,6 +552,7 @@
 
       try {
         const cleanNumber = phoneNumber.replace(/[^\d]/g, '');
+        lastAttemptedNumber = cleanNumber;
         const res = await fetch(`/code?number=${cleanNumber}`);
         const data = await res.json();
 
@@ -540,9 +560,17 @@
           showCode(data.code);
           showToast('Pair code generated successfully!');
           startCooldown();
+        } else if (data.status === 'reconnecting') {
+          showInfoInCode('This number is already linked to this bot — it\'s reconnecting automatically in the background. No new code is needed. If it doesn\'t come online in a minute, use "Force New Code" below.');
+          showToast('Reconnecting existing session...');
+          forceBtn.style.display = 'flex';
         } else if (data.status === 'already_connected') {
-          showErrorInCode('This number is already connected.');
-          showToast('Already connected', true);
+          showInfoInCode('This number is already connected and online right now.');
+          showToast('Already connected', false);
+          forceBtn.style.display = 'flex';
+        } else if (data.status === 'connection_in_progress') {
+          showInfoInCode('A pairing attempt for this number is already running — please wait a moment and try again.');
+          showToast('Already in progress');
         } else {
           throw new Error(data.error || data.message || 'Failed to generate code');
         }
@@ -553,6 +581,35 @@
       } finally {
         generateBtn.style.display = 'flex';
         loading.style.display = 'none';
+      }
+    }
+
+    async function forceNewCode() {
+      if (!lastAttemptedNumber) return;
+      forceBtn.disabled = true;
+      forceBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Resetting session...';
+      try {
+        const dRes = await fetch(`/disconnect?number=${lastAttemptedNumber}`);
+        const dData = await dRes.json();
+        if (dData.status !== 'success') {
+          throw new Error(dData.message || dData.error || 'Could not clear old session');
+        }
+        await new Promise(r => setTimeout(r, 1500));
+        const res = await fetch(`/code?number=${lastAttemptedNumber}`);
+        const data = await res.json();
+        if (data.code) {
+          showCode(data.code);
+          showToast('New pair code generated!');
+          forceBtn.style.display = 'none';
+          startCooldown();
+        } else {
+          showErrorInCode(data.message || data.error || 'Still could not generate a fresh code. Try again shortly.');
+        }
+      } catch (e) {
+        showErrorInCode('Failed to reset session: ' + e.message);
+      } finally {
+        forceBtn.disabled = false;
+        forceBtn.innerHTML = '<i class="fas fa-rotate"></i> Force New Code (resets this number\'s session)';
       }
     }
 
@@ -577,6 +634,7 @@
 
     form.addEventListener('submit', generatePairCode);
     copyBtn.addEventListener('click', copyCode);
+    forceBtn.addEventListener('click', forceNewCode);
     phoneInput.addEventListener('input', (e) => { e.target.value = e.target.value.replace(/[^\d]/g, ''); });
     phoneInput.addEventListener('focus', () => { if (codeBox.classList.contains('has-error')) resetCodeBox(); });
 

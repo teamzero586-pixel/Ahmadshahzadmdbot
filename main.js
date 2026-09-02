@@ -2245,18 +2245,35 @@ router.get('/disconnect', async (req, res) => {
     const { number } = req.query;
     if (!number) return res.status(400).json({ error: 'Number required' });
     const n = normalizePhoneNumber(number);
-    if (!activeSockets.has(n)) return res.status(404).json({ error: 'Not found' });
     try {
-        const socket = activeSockets.get(n);
-        await socket.ws.close();
-        socket.ev.removeAllListeners();
-        activeSockets.delete(n);
-        socketCreationTime.delete(n);
+        // Close the live socket if one exists in this dyno's memory.
+        if (activeSockets.has(n)) {
+            try {
+                const socket = activeSockets.get(n);
+                socket.ev.removeAllListeners();
+                await socket.ws.close();
+            } catch (e) { /* socket already dead — fine */ }
+            activeSockets.delete(n);
+            socketCreationTime.delete(n);
+        }
+
+        // Always wipe the saved session too — this is the part that was
+        // missing. If a number has valid creds on disk/MongoDB but no
+        // live socket in THIS dyno's memory (e.g. after a restart, or a
+        // reconnect that's stuck), the old code returned 404 here and
+        // never actually cleared anything, so /code kept finding the same
+        // "registered" session and replying "reconnecting" forever — the
+        // Force New Code button looked like it did nothing.
+        const sessionPath = path.join(__dirname, 'session', `session_${n}`);
+        if (fs.existsSync(sessionPath)) {
+            await fs.remove(sessionPath);
+        }
         await removeNumberFromMongoDB(n);
         await deleteSessionFromMongoDB(n);
-        res.json({ status: 'success', message: 'Disconnected' });
+
+        res.json({ status: 'success', message: 'Session cleared' });
     } catch (e) {
-        res.status(500).json({ error: 'Failed to disconnect' });
+        res.status(500).json({ error: 'Failed to disconnect', message: e.message });
     }
 });
 
