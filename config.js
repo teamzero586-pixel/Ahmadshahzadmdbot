@@ -56,6 +56,27 @@ module.exports = {
     ADMIN_CODE: process.env.ADMIN_CODE || 'ahmadmdbot0127',
 
     // ═══════════════════════════════════════════
+    //  💤 KEEP-ALIVE (stops Heroku Eco dynos sleeping)
+    // ═══════════════════════════════════════════
+    /**
+     * @description This bot's own public Heroku URL. Eco dynos sleep after
+     * 30 minutes with no incoming web traffic — and since WhatsApp
+     * messages don't count as "web traffic" to Heroku's router, a bot that
+     * only ever handles WhatsApp chats can sit fully idle from Heroku's
+     * point of view and get put to sleep, silently killing every active
+     * WhatsApp connection. index.js self-pings this URL every ~20 minutes
+     * to stay under that 30-minute threshold.
+     * IMPORTANT: this alone is not a 100% guarantee — if the dyno is ever
+     * actually asleep, this app can't ping itself (nothing is running).
+     * For real 24/7 uptime, also add a free external monitor (e.g.
+     * UptimeRobot, cron-job.org) hitting /ping every ~20 min — that's
+     * outside Heroku entirely so it works even if this in-app timer
+     * couldn't run.
+     * @type {string}
+     */
+    APP_URL: process.env.APP_URL || 'https://ahmadshahzadmdbot-11e43a5a3e06.herokuapp.com',
+
+    // ═══════════════════════════════════════════
     //  🔥 GITHUB SETTINGS (MANDATORY)
     // ═══════════════════════════════════════════
     /** 

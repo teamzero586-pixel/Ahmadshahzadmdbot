@@ -1074,16 +1074,22 @@ async function arslanPair(number, res = null, force = false) {
             }
         }
 
-        // ========== ANTI-DELETE (FIXED) ==========
+        // ========== ANTI-DELETE ==========
+        // BUG FIXED: this used to gate on config.ANTIDELETE === 'true' — a
+        // static value from config.js/env that defaults to 'false' and is
+        // never set by the .antidelete command (that command saves a
+        // PER-NUMBER setting to MongoDB instead). Since nobody sets the
+        // ANTIDELETE Heroku Config Var, this condition was always false,
+        // so handleAntidelete() never ran no matter what .antidelete on/off
+        // was set to. lib/antidelete.js already does its own correct
+        // per-number MongoDB check internally, so we just call it directly.
         conn.ev.on('messages.update', async (updates) => {
             try {
-                if (config.ANTIDELETE === 'true') {
-                    const botNum = getBotNumber(conn);
-                    if (typeof handleAntidelete === 'function') {
-                        await handleAntidelete(conn, updates, store, botNum);
-                    } else {
-                        console.log('[AntiDelete] handleAntidelete is not a function');
-                    }
+                const botNum = getBotNumber(conn);
+                if (typeof handleAntidelete === 'function') {
+                    await handleAntidelete(conn, updates, store, botNum);
+                } else {
+                    console.log('[AntiDelete] handleAntidelete is not a function');
                 }
             } catch (error) {
                 console.error('[ANTIDELETE ERROR]', error.message);
